@@ -1,0 +1,346 @@
+TheMainScreen:
+	
+
+# Main Work Class
+<TheMainScreen>:
+	NavLayout:	
+		ScrManager:
+			id: scr_manager
+			Hptu:
+				name: "HptuScreen"
+				BoxLayout:
+					orientation: "vertical"
+					MDTabs:
+						background_color: (1,0,0,1)
+						HptuTab1:
+							id: first_tab
+							text: "NoticeBoard"
+							background_color: (1,0,0,1)
+							GridLayout:
+								cols: 1
+								spacing: 10
+								NFB:
+									id: nfb_web_browser
+									size_hint: 1,None
+									height: dp(80)
+									id: nfb_id
+									md_bg_color: 0,0,0,0.2
+								NSB:
+									size_hint: 1,None
+									height: dp(80)
+									id: nsb_id
+									md_bg_color: 0,0,0,0.2
+								NTB
+									size_hint: 1,None
+									height: dp(80)
+									id: ntb_id
+									md_bg_color: 0,0,0,0.2
+								NFoB:
+									size_hint: 1,None
+									height: dp(100)
+									id: nfob_id
+									md_bg_color: 0,0,0,0.2
+								cir_refresh_btn:
+									id: refresh_btn
+									disabled: True
+									size_hint: None,None
+									width: dp(80)
+									height: dp(80)
+									
+						HptuTab1:	
+							id: second_id
+							text: "Events"
+							background_color: (1,0,0,1)
+							GridLayout:
+								cols: 1
+								spacing: 10
+								
+								AFB:
+									size_hint: 1,None
+									height: dp(80)
+									id: afb_id
+									md_bg_color: 0,0,0,0.2
+								ASB:
+									size_hint: 1,None
+									height: dp(80)
+									id: asb_id
+									md_bg_color: 0,0,0,0.2
+								ATB:
+									size_hint: 1,None
+									height: dp(80)
+									id: atb_id
+									md_bg_color: 0,0,0,0.2
+								AFoB:
+									size_hint: 1,None
+									height: dp(80)
+									id: afob_id
+									md_bg_color: 0,0,0,0.2							
+							
+						HptuTab1:
+							id: third_id
+							text: "Officials"
+							background_color: (1,0,0,1)
+							GridLayout:
+								cols: 1
+								spacing: 10
+
+								OFB:
+									size_hint: 1,None
+									height: dp(80)
+									id: ofb_id
+									md_bg_color: 0,0,0,0.2
+								OSB:
+									size_hint: 1,None
+									height: dp(80)
+									id: osb_id
+									md_bg_color: 0,0,0,0.2
+
+								
+					BottomBar:
+						size_hint: 1,None
+			NHScreen:
+				name: "NHScreenScreen"
+				BoxLayout:
+					orientation: "vertical"
+					BottomBar:
+						size_hint: 1,None
+			Sirda:
+				name: "SirdaScreen"
+				MDBoxLayout:
+					orientation: "vertical"
+					Image:
+						source: "Images/MonSirdaImage.jpg"
+						size_hint: 1,0.3
+						allow_stretch: True
+						keep_ratio: False
+						color: (1,1,1,0.5)
+						BoxLayout:
+							Image:
+								pos: root.pos
+								source: "Images/sirdalogot.png"
+								#size_hint_y: 0.9
+								keep_ratio: False
+								color: (1,1,1,0.7)
+					ScrollView:
+						size: self.size
+						GridLayout:
+							cols: 1
+							size_hint_y: None
+							spacing: 5
+							height: self.minimum_height
+							Widget:
+								id: first_w
+								size_hint: 1,None
+								height: "300dp"
+							Label:
+								id: intro	
+								color: 0,0,0,1
+								size: self.texture_size
+								text_size: root.width,None
+								markup: True
+								size_hint: 1,None
+								height: dp(1500)
+								text: "[b][color=87ceeb][size=20]Welcome To Sirda Group Of Institutions[/size][/color][/b]\n\nThe Society, Sundernagar Integrated Rural Development Association was registered in the year 1985 under the society Act 21 of 1860. The society had a humble start with social awareness of backward and downtrodden people of the area, which later established as SIRDA Group of Institutions in the year 2009.\n\nInitially it was registered and affiliated as Polytechnic and an Engineering College exclusively for women, which was subsequently converted to co-educational system in the year 2011 and transformed to the present status of imparting technical education.\n\nBoth these institutes stand approved by All India Council of Technical Education(AICTE) and are affiliated to Himachal Pradesh Technical University , Hamirpur and Himachal Pradesh University , Shimla (For degree Courses) and to Himachal Pradesh Takniki Shiksha Board, Dharamshala( for Diploma Courses)."		
+							BoxLayout:
+								id: official_site
+								size_hint: 1,None
+								height: "90dp"
+								Label:
+									color: 1,0,0,1
+									text_size: root.width,None
+									text: ""
+								Button:
+									color: 0,0,0,1
+									background_color: 1,0,0,1
+									text_size: root.width,None
+									text: "VISIT SITE"
+							Widget:
+								id: second_w
+								size_hint: 1,None
+								height: "12dp"
+					
+					BottomBar:
+						size_hint: 1,None
+			
+
+
+			FacultyMembers:
+				name: "CurrentNotificationScreen"
+				BoxLayout:
+					orientation: "vertical"
+					ScrollView:
+						size: self.size
+						GridLayout:
+							id: faculty_grid
+							cols: 1
+							size_hint_y: None
+							spacing: 50
+							height: self.minimum_height
+							Widget:
+								size_hint: 1,None
+								height: "100dp"
+					BottomBar:
+						size_hint: 1,None
+						
+			Fees:
+				name: "FeesScreen"
+				BoxLayout:
+					orientation: "vertical"
+					Image:
+						source: "Images/rupees.jpg"
+						size_hint: 1,0.3
+						allow_stretch: True
+						keep_ratio: False
+					SemFees:
+						size_hint: 1,None
+						on_press: self.open_browser()
+					UdfFees:
+						size_hint: 1,None
+						on_press: self.open_browser()
+					Widget:
+						size_hint: 1,1				
+					BottomBar:
+						size_hint: 1,None
+		ScrDrawer:	
+			id: nav_drawer
+			NavBoxLayout:
+				orientation: "vertical"
+				NavBoxLayoutHor:
+					MiniHorizontal:
+						MiniVertical:
+							cols: 1
+							canvas:
+								Color:
+									rgb: 1,1,1
+								Ellipse:
+									pos: self.x + 20,self.y + 20
+									size: 150,150
+									source: "Images/croplogo.png"
+									angle_start: 0
+									angle_end: 360
+						Widget:
+				NHScreenBtn:
+					on_release:
+						nav_drawer.set_state('close')
+						app.root.ids.scr_manager.current = "NHScreenScreen"
+				SirdaBtn:
+					on_release:
+						nav_drawer.set_state('close')
+						app.root.ids.scr_manager.current = "SirdaScreen"
+				HptuBtn:
+					on_release:
+						nav_drawer.set_state('close')
+						app.root.ids.scr_manager.current = "HptuScreen"
+				FacultyMembersBtn:
+					on_release:
+						nav_drawer.set_state('close')
+						app.root.ids.scr_manager.current = "CurrentNotificationScreen"
+				PaymentBtn:
+					on_release:
+						nav_drawer.set_state('close')
+						app.root.ids.scr_manager.current = "FeesScreen"
+				Widget:
+					size_hint: 1,1
+# Common bottom bar
+<BottomBar@MDBottomAppBar>:
+	md_bg_color: 1,0,0,1
+	id: s_b_nav
+	size_hint: 1,None
+	height: dp(65)
+	MDToolbar:
+		title: "SirdaSev"
+		icon: "account-supervisor-circle"
+		type: "bottom"
+		left_action_items: [["menu", lambda x: app.root.ids.nav_drawer.set_state('open')]]
+		icon_color: 1,0,0,1
+		on_action_button: app.root.ids.scr_manager.change_current("ChatBoxScreen")
+
+
+# Initializing Notification Buttons
+
+<NFB>:
+	text: root.tex_nfb
+	on_press: root.open_browser()
+<NSB>:
+	text: root.tex_nsb
+	on_press: root.open_browser()
+<NTB>:
+	text: root.tex_ntb
+	on_press: root.open_browser()
+<NFoB>:
+	text: root.tex_nfob
+	on_press: root.open_browser()
+<AFB>:
+	text: root.tex_afb
+	on_press: root.open_browser()
+<ASB>:
+	text: root.tex_asb
+	on_press: root.open_browser()
+<ATB>:
+	text: root.tex_atb
+	on_press: root.open_browser()
+<AFoB>:
+	text: root.tex_afob
+	on_press: root.open_browser()
+<OFB>:
+	text: root.tex_ofb
+	on_press: root.open_browser()
+<OSB>:
+	text: root.tex_osb
+	on_press: root.open_browser()
+
+<PaymentBtn>:
+	icon: "android"
+	text: "Payment"
+	size_hint: 1,1
+	text_color: 1,0,0,1
+	icon_color: 1,0,0,1
+	line_color: 0,0,0,0
+
+<SirdaBtn>:
+	icon: "android"
+	text: "Sirda"
+	size_hint: 1,1
+	text_color: 1,0,0,1
+	icon_color: 1,0,0,1
+	line_color: 0,0,0,0
+
+<NHScreenBtn>:
+	icon: "home-variant-outline"
+	text: "Home"
+	size_hint: 1,1
+	text_color: 1,0,0,1
+	icon_color: 1,0,0,1
+	line_color: 0,0,0,0
+
+<HptuBtn>:
+	icon: "android"
+	text: "Hptu"
+	size_hint: 1,1
+	text_color: 1,0,0,1
+	icon_color: 1,0,0,1
+	line_color: 0,0,0,0
+
+<FacultyMembersBtn>:
+	icon: "android"
+	text: "Faculty"	
+	size_hint: 1,1
+	text_color: 1,0,0,1
+	icon_color: 1,0,0,1
+	line_color: 0,0,0,0
+
+<SemFees>:
+	size_hint: 1,1
+	background_color: 0.301, 0.858, 1
+	text: "Payment Notification\nYou have pending fees\nSem: 5th\nAmount: 25,000 Rs\-"
+
+<UdfFees>:
+	size_hint: 1,1
+	background_color: 0.301, 0.858, 1
+	text: "Payment Notification\nYou have pending fees\nUdf: 5th\nAmount: 3,000 Rs\-"
+
+<cir_refresh_btn>:
+	background_disabled_normal: ''
+	background_normal: "Images/refresh_btn.png"
+	background_down: "Images/refresh_btn.png"
+

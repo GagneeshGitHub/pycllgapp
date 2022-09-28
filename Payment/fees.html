@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Payment</title>
+</head>
+<body>
+
+<button id="rzp-button1">Pay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var file = new File(["UTF-8"], "orderid.txt", {
+  type: "text/plain",
+});
+
+var reader = new FileReader();
+var text_of = reader.readAsText(file);
+
+var options = {
+    "key": "rzp_test_NQsdA9rMMdMTBG", // Enter the Key ID generated from the Dashboard
+    "name": "Sirda College",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_IZFZJZMeVBx9tu", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+	console.log(
+	{
+		razorpay_payment_id: response.razorpay_payment_id,
+		razorpay_order_id: response.razorpay_order_id,
+		razorpay_signature: response.razorpay_signature
+	}
+	);
+    },
+    "prefill": {
+        "name": "Sirda College",
+        "email": "sirda@example.com",
+        "contact": "9999999999"
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+console.log(text_of)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+MainScreen:
+	
+	MDCard:
+		size_hint: None, None
+		size: 300,400
+		pos_hint: {"center_x":0.5, "center_y": 0.5}
+		elevation: 10
+		padding: 25
+		spacing: 25
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'vertical'
+			spacing: 10
+			MDTextField:
+				size_hint: 1,1
+				id: name_field
+				hint_text: "Your Name"
+				max_text_length: 20
+
+			MDTextField:
+				size_hint: 1,1
+				id: roll_field
+				hint_text: "Your RollNumber"
+				max_text_length: 10			
+
+			MDTextField:
+				size_hint: 1,1
+				id: loginid
+				hint_text: "Login Id"
+				max_text_length: 10
+
+			Spinner:
+				size_hint: 1,1
+				background_color: 0.160, 1, 0.949
+				id: spinner_branch
+				text: "Select Your Branch"
+				values: ["M.Tech","B.Tech","Polytechnic"]
+				on_text: root.spinner_clicked(spinner_branch.text)
+
+			Spinner:
+				size_hint: 1,1
+				background_color: 0.160, 1, 0.949
+				id: spinner_course
+				text: "Select Your Course"
+				values: root.course_value
+				on_text: root.spinner_clicked2(spinner_course.text)
+
+			Button:
+				size_hint: 1,1
+				background_color: 0.160, 1, 0.949
+				id: submit
+				text: "Submit"
+				on_press: root.submit_values(name_field.text,roll_field.text,loginid.text)
+			
+			
